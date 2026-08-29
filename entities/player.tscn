@@ -1,0 +1,143 @@
+[gd_scene format=3 uid="uid://bvj10qqe6tk8d"]
+
+[ext_resource type="Script" uid="uid://ue8e5qb827vs" path="res://scripts/player.gd" id="1_b0kkn"]
+[ext_resource type="Texture2D" uid="uid://cwlerdkksm285" path="res://sprites/Sprites Dragon Ball Z/GokuSprites/Goku_Idle_SemFundo.png" id="3_qly61"]
+[ext_resource type="Texture2D" uid="uid://ccjtjnc5trfht" path="res://sprites/Sprites Dragon Ball Z/GokuSprites/Goku_Jumping_SemFundo.png" id="3_rfe5m"]
+[ext_resource type="Texture2D" uid="uid://b1xwawyae5w0j" path="res://sprites/Sprites Dragon Ball Z/GokuSprites/Goku_Running_SemFundo.png" id="4_rfe5m"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t07pf"]
+radius = 6.0
+height = 14.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oprnr"]
+atlas = ExtResource("3_qly61")
+region = Rect2(0, 0, 58, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rie4"]
+atlas = ExtResource("3_qly61")
+region = Rect2(58, 0, 58, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dp3pk"]
+atlas = ExtResource("3_qly61")
+region = Rect2(116, 0, 58, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgp7q"]
+atlas = ExtResource("3_qly61")
+region = Rect2(174, 0, 58, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsoyl"]
+atlas = ExtResource("3_rfe5m")
+region = Rect2(52, 0, 52, 78)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6nm46"]
+atlas = ExtResource("3_rfe5m")
+region = Rect2(104, 0, 52, 78)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i623q"]
+atlas = ExtResource("3_rfe5m")
+region = Rect2(156, 0, 52, 78)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0i614"]
+atlas = ExtResource("3_rfe5m")
+region = Rect2(208, 0, 52, 78)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1n8aq"]
+atlas = ExtResource("3_rfe5m")
+region = Rect2(260, 0, 52, 78)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28s6d"]
+atlas = ExtResource("3_rfe5m")
+region = Rect2(312, 0, 52, 78)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qly61"]
+atlas = ExtResource("4_rfe5m")
+region = Rect2(2, 0, 65, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ef06p"]
+atlas = ExtResource("4_rfe5m")
+region = Rect2(67, 0, 65, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjdhl"]
+atlas = ExtResource("4_rfe5m")
+region = Rect2(132, 0, 65, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x08pd"]
+atlas = ExtResource("4_rfe5m")
+region = Rect2(197, 0, 65, 56)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t07pf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oprnr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8rie4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dp3pk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgp7q")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qsoyl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6nm46")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i623q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0i614")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1n8aq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28s6d")
+}],
+"loop": 1,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qly61")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ef06p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjdhl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x08pd")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[node name="player" type="CharacterBody2D" unique_id=1587354535 groups=["player"]]
+texture_repeat = 2
+position = Vector2(57, 31)
+script = ExtResource("1_b0kkn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=828112370]
+shape = SubResource("CapsuleShape2D_t07pf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=282045638]
+z_index = 1
+texture_filter = 1
+position = Vector2(0, -3)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_t07pf")
+animation = &"walk"
+autoplay = "idle"

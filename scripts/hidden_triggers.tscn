@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bwp1cik10bxfp"]
+
+[ext_resource type="Script" uid="uid://c67vw1o3672ry" path="res://hidden_triggers.gd" id="1_a6q3i"]
+
+[node name="Hidden_Triggers" type="Area2D" unique_id=529333165]
+script = ExtResource("1_a6q3i")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

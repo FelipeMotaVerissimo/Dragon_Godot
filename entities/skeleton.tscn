@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://dd2jo8pkkfiwy"]
+
+[ext_resource type="Texture2D" uid="uid://c8xhti6ejk8tf" path="res://sprites/3 - Skeleton/Bone_Pile_Wakeup (32 x 32).png" id="1_20vpb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t07pf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yag7t"]
+atlas = ExtResource("1_20vpb")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpmxe"]
+atlas = ExtResource("1_20vpb")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4oc3b"]
+atlas = ExtResource("1_20vpb")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hr2a"]
+atlas = ExtResource("1_20vpb")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j31jw"]
+atlas = ExtResource("1_20vpb")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tx6xw"]
+atlas = ExtResource("1_20vpb")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mssj4"]
+atlas = ExtResource("1_20vpb")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t07pf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yag7t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fpmxe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4oc3b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hr2a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j31jw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tx6xw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mssj4")
+}],
+"loop": 0,
+"name": &"reborn",
+"speed": 1.0
+}]
+
+[node name="Node2D" type="Node2D" unique_id=1421899563]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=634031158]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=993313746]
+shape = SubResource("CapsuleShape2D_t07pf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D/CollisionShape2D" unique_id=648661165]
+sprite_frames = SubResource("SpriteFrames_t07pf")
+animation = &"reborn"
+autoplay = "reborn"
