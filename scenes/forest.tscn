@@ -10,11 +10,13 @@
 [ext_resource type="Texture2D" uid="uid://bwedevduhlcbx" path="res://sprites/Seasonal Tilesets/2 - Autumn Forest/Background parts/2 - Trees.png" id="8_j3csf"]
 [ext_resource type="Texture2D" uid="uid://dvkpr5h28glsi" path="res://sprites/Seasonal Tilesets/2 - Autumn Forest/Background parts/1 - Leaf_top.png" id="9_dabdc"]
 [ext_resource type="PackedScene" uid="uid://b2ivj4dyhq64n" path="res://entities/camera_2d.tscn" id="10_3knxq"]
+[ext_resource type="Texture2D" uid="uid://fb2sq2vndg08" path="res://sprites/Sprites Dragon Ball Z/nave.png" id="11_j3csf"]
+[ext_resource type="PackedScene" uid="uid://dsdhv7h7q78j8" path="res://entities/passage.tscn" id="12_dabdc"]
 
 [node name="forest" type="Node2D" unique_id=872300598]
 
 [node name="player" parent="." unique_id=870111983 instance=ExtResource("1_0afsd")]
-position = Vector2(56, 73)
+position = Vector2(56, 150)
 
 [node name="terrain" type="TileMapLayer" parent="." unique_id=542885017]
 position = Vector2(-1, 16)
@@ -93,3 +95,14 @@ region_enabled = true
 region_rect = Rect2(0, 0, 576, 208)
 
 [node name="Camera2D" parent="." unique_id=1673570123 instance=ExtResource("10_3knxq")]
+
+[node name="Nave" type="Sprite2D" parent="." unique_id=1324887683]
+position = Vector2(8.999998, 168)
+scale = Vector2(0.06676136, 0.063565366)
+texture = ExtResource("11_j3csf")
+flip_h = true
+
+[node name="passage" parent="." unique_id=356190950 instance=ExtResource("12_dabdc")]
+position = Vector2(11, 163)
+destino = "uid://dkkdlojp4eidp"
+ponto_de_chegada = "Inicio"

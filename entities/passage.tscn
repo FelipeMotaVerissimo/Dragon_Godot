@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dsdhv7h7q78j8"]
+
+[ext_resource type="Script" uid="uid://demhlvw0ib1cd" path="res://scripts/passage.gd" id="1_py3kf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hlrot"]
+
+[node name="passage" type="Area2D" unique_id=356190950]
+script = ExtResource("1_py3kf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=704360749]
+shape = SubResource("RectangleShape2D_hlrot")

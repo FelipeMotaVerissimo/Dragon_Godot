@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bxqejrn2wsbcc"]
+
+[ext_resource type="Texture2D" uid="uid://4khkk1b0plnc" path="res://sprites/Sprites Dragon Ball Z/Serpent way.png" id="1_ncc87"]
+[ext_resource type="Texture2D" uid="uid://bfsdogpnk8rqe" path="res://sprites/Sprites Dragon Ball Z/Serpent-Strips.png" id="2_s7i7s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hlrot"]
+size = Vector2(90, 16)
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=461536541]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=392163483]
+texture = ExtResource("1_ncc87")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1891881600]
+texture = ExtResource("2_s7i7s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=665066263]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_hlrot")

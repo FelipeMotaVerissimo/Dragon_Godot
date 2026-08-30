@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="aulas"
-run/main_scene="uid://c067j14duof1w"
+run/main_scene="uid://dkkdlojp4eidp"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Transicao="*uid://b3b6p3abr2guj"
+Singleton="*uid://bi7k2mm7hp3wv"
 
 [display]
 

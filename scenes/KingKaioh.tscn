@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://d4gi5dkp4nngm"]
+
+[ext_resource type="Texture2D" uid="uid://dgy6ox7vxiu33" path="res://sprites/Sprites Dragon Ball Z/senhor_kaioh.png" id="1_qrawb"]
+[ext_resource type="PackedScene" uid="uid://bxqejrn2wsbcc" path="res://tiles/Serpent_Way.tscn" id="2_qrawb"]
+[ext_resource type="PackedScene" uid="uid://dsdhv7h7q78j8" path="res://entities/passage.tscn" id="3_47xuj"]
+[ext_resource type="Texture2D" uid="uid://dmc64xlckdv8g" path="res://sprites/Sprites Dragon Ball Z/nuvem.png" id="4_8lu2o"]
+[ext_resource type="PackedScene" uid="uid://bvj10qqe6tk8d" path="res://entities/player.tscn" id="5_8lu2o"]
+
+[node name="Node2D" type="Node2D" unique_id=961560564]
+position = Vector2(-1, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=353066734]
+position = Vector2(214.00002, 102.125)
+scale = Vector2(0.35583332, 0.6875)
+texture = ExtResource("1_qrawb")
+
+[node name="StaticBody2D" parent="." unique_id=461536541 instance=ExtResource("2_qrawb")]
+position = Vector2(45, 158)
+
+[node name="passage" parent="." unique_id=356190950 instance=ExtResource("3_47xuj")]
+position = Vector2(80, 138)
+destino = "uid://dkkdlojp4eidp"
+ponto_de_chegada = "KingKaioh"
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=790367882]
+position = Vector2(80, 139.00002)
+scale = Vector2(0.048295453, 0.056818184)
+texture = ExtResource("4_8lu2o")
+
+[node name="PontosDeChegada" type="Node2D" parent="." unique_id=1632611250]
+position = Vector2(14, 123)
+
+[node name="Inicio" type="Marker2D" parent="PontosDeChegada" unique_id=1565028542]
+position = Vector2(0, 1)
+
+[node name="player" parent="." unique_id=1587354535 instance=ExtResource("5_8lu2o")]
+position = Vector2(22, 143)
