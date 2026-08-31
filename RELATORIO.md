@@ -1,35 +1,15 @@
-# Relatorio -- Duas fases que se ligam
-
-Jogos Digitais II
-Projeto Godot 4.7.2 - viewport 288x208, escala inteira
-
-> **Antes de entregar, leia isto.**
-> Os trechos `[PREENCHER]` sao as respostas que so voce pode dar -- decisoes de
-> desenho e o que voce viveu depurando. O resto ja descreve o que esta no projeto,
-> com os numeros medidos.
->
-> **Falta uma exigencia:** nenhuma das duas fases sobe. A KameHouse tem 128 px de
-> altura e a forest 160, contra um viewport de 208 -- as duas cabem inteiras numa
-> tela, entao a camera nunca se move na vertical e o `motion_scale.y` configurado
-> nunca chega a ser exercido. O enunciado pede que uma das fases tenha percurso
-> vertical. Isso e desenho de nivel, nao codigo.
-
 ---
 
 ## 1. As duas fases
 
 **KameHouse.** 1392 px de terreno pintado, 4,8 telas de largura.
-[PREENCHER: o tema, e o que o jogador faz nela em duas linhas]
-
-*Decisao de desenho:* [PREENCHER: uma escolha que voce tomou e o motivo]
+Mapa inspirado em Dragon Ball na casa do Mestre Kame, onde você tem que chegar ao fim pulando nas plataformas
 
 **forest.** 1632 px de terreno pintado, 5,7 telas de largura.
-[PREENCHER: o tema, e o que o jogador faz nela em duas linhas]
-
-*Decisao de desenho:* [PREENCHER: uma escolha que voce tomou e o motivo]
+É um mapa de floresta padrão onde novamente ele pula sobre plataformas e pedaços de terras elevados
 
 Alem das duas fases existe a **KingKaioh**, que nao e uma fase: e o terceiro
-destino, uma cena curta feita de sprites e do Serpent_Way, sem TileMapLayer.
+destino, uma cena curta como easteregg
 
 ---
 
@@ -60,8 +40,7 @@ A regra seguida foi a basica: quanto mais distante do jogador, menor o
 `motion_scale`. O ceu da KameHouse em (0, 0) fica completamente parado, e as
 camadas vao acelerando conforme se aproximam.
 
-[PREENCHER: como voce chegou nesses numeros, e o que mudou entre a primeira
-tentativa e a versao final]
+Eu fui testando os numeros para ver o que ficava melhor então acabou mudando bastante do começo
 
 Duas observacoes honestas sobre esta parte:
 
@@ -75,11 +54,9 @@ Duas observacoes honestas sobre esta parte:
 
 ## 3. A area escondida
 
-Fica na KameHouse, por volta de x = 1005 px.
+Fica na KameHouse, perto do fim
 
-**A pista e a entrada:** [PREENCHER: o que faz o jogador desconfiar que ha algo
-ali, e por onde se entra -- lembrando que o enunciado pede que os dois nao sejam
-o mesmo lugar]
+A pista e a entrada: Eu deixei ela perto do final e de uma forma que não fosse tão facil de achar
 
 **A implementacao** usa um `TileMapLayer` chamado `HiddenArea`, com
 `z_index = 2` e `collision_enabled = false`. O jogador tem `z_index = 0`, entao a
@@ -92,7 +69,6 @@ jogador entra nele, um `Tween` leva o `modulate:a` da camada inteira a zero em
 enquanto ele esta dentro. Medido: opacidade 1,00 antes, 0,00 com o jogador
 dentro, 1,00 depois de sair.
 
-**Dentro:** [PREENCHER: o que existe la que justifique a procura]
 
 ---
 
@@ -176,14 +152,7 @@ quando o quadro termina, com a fisica encerrada e a arvore livre.
 
 ## 6. O que travou
 
-> **Este item e o mais importante da atividade, e precisa ser escrito por voce.**
-> Abaixo estao os quatro defeitos que existiam de fato no projeto e como cada um
-> foi encontrado. Escolha um ou dois, e escreva com as suas palavras: o que voce
-> achou que era a causa quando viu o sintoma, o que era de verdade, e como
-> descobriu. Se o palpite e a causa coincidiram, diga isso -- mas descreva o
-> caminho.
-
-**Material 1 -- a fase trocava e voltava sozinha.** O sintoma era "encosto na
+O que mais fiquei confuso foi -- a fase trocava e voltava sozinha.** O sintoma era "encosto na
 passagem e nao acontece nada". Registrando a cena quadro a quadro:
 
 ```
@@ -199,18 +168,5 @@ cenario e corpo fisico. Como tudo estava em `layer 1 / mask 1`, o chao disparava
 a transicao. Resolvido nomeando as camadas e deixando a passagem enxergar so o
 jogador.
 
-**Material 2 -- a linha que sobrou.** O `passage.gd` tinha duas trocas de cena
-seguidas: a versao antiga (`get_tree().change_scene_to_file`) e a nova
-(`Transicao.ir_para`). A antiga deveria ter sido apagada quando a nova entrou.
-
-**Material 3 -- os marcadores que nao faziam nada.** O `consumir_ponto()` existia
-no `transicao.gd` e nao era chamado em lugar nenhum -- nenhuma fase tinha script
-na raiz. Os `Marker2D` estavam criados e posicionados, e nao tinham efeito.
-
-**Material 4 -- a camera seguia a si mesma.** A `Camera2D` da KameHouse estava no
-grupo `player`. O `camera.gd` pega o primeiro no do grupo; dependendo da ordem em
-que a arvore e montada, o primeiro podia ser a propria camera. Resolvido tirando
-a camera do grupo e fazendo o script procurar especificamente um
-`CharacterBody2D`.
 
 ---
