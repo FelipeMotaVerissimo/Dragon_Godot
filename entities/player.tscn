@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bvj10qqe6tk8d"]
 
 [ext_resource type="Script" uid="uid://ue8e5qb827vs" path="res://scripts/player.gd" id="1_b0kkn"]
+[ext_resource type="Texture2D" uid="uid://bomkvnjmfft14" path="res://sprites/Sprites Dragon Ball Z/GokuSprites/goku_Shift.png" id="2_qly61"]
 [ext_resource type="Texture2D" uid="uid://cwlerdkksm285" path="res://sprites/Sprites Dragon Ball Z/GokuSprites/Goku_Idle_SemFundo.png" id="3_qly61"]
 [ext_resource type="Texture2D" uid="uid://ccjtjnc5trfht" path="res://sprites/Sprites Dragon Ball Z/GokuSprites/Goku_Jumping_SemFundo.png" id="3_rfe5m"]
 [ext_resource type="Texture2D" uid="uid://b1xwawyae5w0j" path="res://sprites/Sprites Dragon Ball Z/GokuSprites/Goku_Running_SemFundo.png" id="4_rfe5m"]
@@ -8,6 +9,10 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t07pf"]
 radius = 6.0
 height = 14.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dchgp"]
+atlas = ExtResource("2_qly61")
+region = Rect2(0, 0, 59, 58)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oprnr"]
 atlas = ExtResource("3_qly61")
@@ -67,6 +72,14 @@ region = Rect2(197, 0, 65, 56)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_t07pf"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dchgp")
+}],
+"loop": 1,
+"name": &"Crouch",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_oprnr")
@@ -139,5 +152,5 @@ texture_filter = 1
 position = Vector2(0, -3)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_t07pf")
-animation = &"walk"
+animation = &"Crouch"
 autoplay = "idle"
